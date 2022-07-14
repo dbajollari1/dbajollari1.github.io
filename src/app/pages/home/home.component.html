@@ -1,6 +1,19 @@
-<div id="home" class="image">
+<div id="home" class="image1">
+    <div >   
+        <ng-particles [id]="id" [options]="particlesOptions" [particlesInit]="particlesInit"
+        (particlesLoaded)="particlesLoaded($event)"></ng-particles>
+    </div>
+ 
     <div class="position-absolute top-50 start-50 translate-middle">
-        <h1 style="color:white" class="text-center">Welcome to my Site!</h1>
-        <p style="color:white" class="text-center">My name is David Bajollari and I curretly studying Computer Science at Stevens Institute of Technoloy. Take a look at all my projects and experience below.</p>
+        <h1 style="color:#E9EBE2; font-weight: 700; font-size: 2em; margin-bottom: 15px;"  class="text-center">Welcome to my Site!</h1>
+        
+        <p style="color:#E9EBE2; font-weight: 400;" class="text-center">My name is David Bajollari and I curretly studying Computer Science at Stevens Institute of Technoloy. Take a look at all my projects and experience below.</p>
+
+        <div class="text-center" > 
+            <a href="https://github.com/dbajollari1"><i class="fa-brands fa-github fa-2xl fa-fw fa-bounce change-color" style="--fa-bounce-start-scale-x: 1; --fa-bounce-start-scale-y: 1; --fa-bounce-jump-scale-x: 1; --fa-bounce-jump-scale-y: 1; --fa-bounce-land-scale-x: 1; --fa-bounce-land-scale-y: 1; --fa-bounce-rebound: 0;--fa-animation-duration: 1s; --fa-animation-iteration-count: 3;"></i></a>
+            <a href="https://www.linkedin.com/in/david-bajollari-0522871b4"><i class="fa-brands fa-linkedin fa-2xl fa-fw fa-bounce change-color" style="--fa-bounce-start-scale-x: 1; --fa-bounce-start-scale-y: 1; --fa-bounce-jump-scale-x: 1; --fa-bounce-jump-scale-y: 1; --fa-bounce-land-scale-x: 1; --fa-bounce-land-scale-y: 1; --fa-bounce-rebound: 0; --fa-animation-duration: 1s; --fa-animation-iteration-count: 3;"></i></a>
+            <a href="https://www.twitter.com"><i class="fa-brands fa-twitter fa-2xl fa-fw fa-bounce change-color" style="--fa-bounce-start-scale-x: 1; --fa-bounce-start-scale-y: 1; --fa-bounce-jump-scale-x: 1; --fa-bounce-jump-scale-y: 1; --fa-bounce-land-scale-x: 1; --fa-bounce-land-scale-y: 1; --fa-bounce-rebound: 0; --fa-animation-duration: 1s; --fa-animation-iteration-count: 3;"></i></a>
+            <i class="fa-solid fa-envelope fa-2xl fa-fw fa-bounce change-color" style="--fa-bounce-start-scale-x: 1; --fa-bounce-start-scale-y: 1; --fa-bounce-jump-scale-x: 1; --fa-bounce-jump-scale-y: 1; --fa-bounce-land-scale-x: 1; --fa-bounce-land-scale-y: 1; --fa-bounce-rebound: 0; --fa-animation-duration: 1s; --fa-animation-iteration-count: 3;"></i>
+        </div>
     </div>
 </div>
