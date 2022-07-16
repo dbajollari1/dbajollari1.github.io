@@ -52,7 +52,7 @@ export class HomeComponent implements OnInit {
         color: "#ffffff",
         distance: 150,
         enable: true,
-        opacity: 0.1,
+        opacity: 0.2,
         width: 1
       },
       collisions: {
@@ -65,7 +65,7 @@ export class HomeComponent implements OnInit {
           default: OutMode.bounce
         },
         random: false,
-        speed: 2,
+        speed: 1.5,
         straight: false
       },
       number: {
