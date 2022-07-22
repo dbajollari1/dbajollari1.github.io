@@ -12,4 +12,10 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  collapseNav() {
+    //console.log(this.classExpression);
+    //this.classExpression = "navbar-collapse collapse";
+    document.getElementsByName('navbarText')[0].classList.remove('show'); 
+  }
+
 }
