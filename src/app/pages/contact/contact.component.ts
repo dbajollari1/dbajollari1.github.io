@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators, NgForm, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
@@ -9,27 +9,32 @@ import { FormBuilder, FormGroup, FormControl, Validators, NgForm } from '@angula
 export class ContactComponent implements OnInit {
 
   contactForm!: FormGroup;
+  submitted = false;
 
-  constructor(private builder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.contactForm = new FormGroup({
-      Fullname: new FormControl('', [Validators.required]),
-      Email: new FormControl('', [Validators.required, Validators.email]),
-      Comment: new FormControl('', [Validators.required])
+    this.contactForm = this.formBuilder.group({
+      name: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      subject: new FormControl('', [Validators.required]), 
+      message: new FormControl('', [Validators.required])
     })
   }
 
-  onSubmit(contactForm: FormGroup) {
-    console.log(contactForm)
-    // this.contact.PostMessage(FormData)
-    // .subscribe(response => {
-    // location.href = 'https://mailthis.to/confirm'
-    // console.log(response)
-    // }, error => {
-    // console.warn(error.responseText)
-    // console.log({ error })
-    // })
+  get f(): { [key: string]: AbstractControl } {
+    return this.contactForm.controls;
   }
+
+  onSubmit(): void {
+    this.submitted = true;
+    if (this.contactForm.invalid) {
+      return;
+    }
+    console.log(JSON.stringify(this.contactForm.value, null, 2));
+    this.contactForm.reset();
+    this.submitted = false;
+  }
+
 
 }
