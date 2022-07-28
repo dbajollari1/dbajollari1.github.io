@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators, NgForm, AbstractControl } from '@angular/forms';
+import { ContactService } from 'src/app/services/contact.service';
 
 @Component({
   selector: 'app-contact',
@@ -11,7 +12,7 @@ export class ContactComponent implements OnInit {
   contactForm!: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private contactSrvc: ContactService) { }
 
   ngOnInit(): void {
     this.contactForm = this.formBuilder.group({
@@ -32,9 +33,9 @@ export class ContactComponent implements OnInit {
       return;
     }
     console.log(JSON.stringify(this.contactForm.value, null, 2));
+    this.contactSrvc.sendEmail(this.f['name'].value,this.f['email'].value,this.f['subject'].value,this.f['message'].value);
     this.contactForm.reset();
     this.submitted = false;
   }
-
 
 }
