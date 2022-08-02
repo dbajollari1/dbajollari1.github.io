@@ -19,8 +19,12 @@ export class HomeComponent implements OnInit {
   /* or the classic JavaScript object */
   particlesOptions = {
     style: { 
-      position:"absolute"
+      position:"absolute", 
     }, 
+    fullScreen: {
+      enable: false,
+      zIndex: 0
+    },
     fpsLimit: 40,
     interactivity: {
       events: {
