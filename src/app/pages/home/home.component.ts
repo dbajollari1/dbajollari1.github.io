@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
       position:"absolute", 
     }, 
     fullScreen: {
-      enable: false,
+      enable: true,
       zIndex: 0
     },
     fpsLimit: 40,
