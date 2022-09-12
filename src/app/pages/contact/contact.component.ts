@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators, NgForm, AbstractControl } from '@angular/forms';
 import { ContactService } from 'src/app/services/contact.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
@@ -12,7 +13,7 @@ export class ContactComponent implements OnInit {
   contactForm!: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder, private contactSrvc: ContactService) { }
+  constructor(private formBuilder: FormBuilder, private contactSrvc: ContactService, private router: Router) { }
 
   ngOnInit(): void {
     this.contactForm = this.formBuilder.group({
@@ -36,6 +37,7 @@ export class ContactComponent implements OnInit {
     this.contactSrvc.sendEmail(this.f['name'].value,this.f['email'].value,this.f['subject'].value,this.f['message'].value);
     this.contactForm.reset();
     this.submitted = false;
+    this.router.navigate(['/']);
   }
 
 }

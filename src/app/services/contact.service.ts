@@ -15,12 +15,13 @@ export class ContactService {
     var data = JSON.stringify({
       "to": "dbajollari1@gmail.com",
       "subject": newSubject,
-      "html": msg
+      "html": msg, 
+      "api_key": "David123"
     });
 
     var config = {
       method: 'post',
-      url: 'https://lynxdigitalauth.azurewebsites.net/pub/email',
+      url: 'https://davidemailservice.azurewebsites.net/public/email',
       headers: {
         'Content-Type': 'application/json'
       },
