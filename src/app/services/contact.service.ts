@@ -8,7 +8,7 @@ export class ContactService {
 
   constructor() { }
 
-  sendEmail(fullName: string, emailAddress: string, subject: string, msg: string) {
+  public async sendEmail(fullName: string, emailAddress: string, subject: string, msg: string) {
     console.log("sending")
     var newSubject = "Email: " + emailAddress + ";Name: " + fullName + ";Subject: " + subject + ";";
     var axios = require('axios');
@@ -28,12 +28,13 @@ export class ContactService {
       data: data
     };
 
-    axios(config)
+    await axios(config)
       .then(function (response:any) {
         console.log(JSON.stringify(response.data));
       })
       .catch(function (error:any) {
         console.log(error);
+        throw error; 
       });
 
   }

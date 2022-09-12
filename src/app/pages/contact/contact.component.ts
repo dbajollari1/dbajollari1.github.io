@@ -28,16 +28,22 @@ export class ContactComponent implements OnInit {
     return this.contactForm.controls;
   }
 
-  onSubmit(): void {
+  async onSubmit(): Promise<void> {
     this.submitted = true;
     if (this.contactForm.invalid) {
       return;
     }
     console.log(JSON.stringify(this.contactForm.value, null, 2));
-    this.contactSrvc.sendEmail(this.f['name'].value,this.f['email'].value,this.f['subject'].value,this.f['message'].value);
-    this.contactForm.reset();
-    this.submitted = false;
-    this.router.navigate(['/']);
+    try{
+      await this.contactSrvc.sendEmail(this.f['name'].value,this.f['email'].value,this.f['subject'].value,this.f['message'].value);
+      this.contactForm.reset();
+      this.submitted = false;
+      alert("Thank you for contacting me!")
+      this.router.navigate(['/']);
+    }
+    catch (error:any){
+      alert("Oops something went wrong. Please try again later. ")
+    };
   }
 
 }
